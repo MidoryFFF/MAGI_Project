@@ -1,5 +1,7 @@
 from binint import BinInt
+import staticFuncs
 import random
+from zipper import *
 
 class NeuronVector:
     def __init__(self, x: int):
@@ -9,12 +11,24 @@ class NeuronVector:
     def NextSumLayer(self, arg: BinInt) -> list[int]:
         newVec: int = [int()] * len(self.vec)
         for i in range(len(self.vec)):
-            newVec[i] = sum([self.vec[i] + j for j in arg])
+            newVec[i] = staticFuncs.ActivationFunc(sum([self.vec[i] + j for j in arg]))
         return newVec
-    
+
     def SetRandomWeights(self):
         for i in self.vec:
             i.set(random.randint(0, 1), random.randint(0, 1))
+
+    def SetWeights(self, weights: list[BinInt]):
+        for i in range(len(self.vec)):
+            try:
+                self.vec[i] = weights[i]
+            except IndexError:
+                print("Error: Compain, extending exist lyer")
+                self.vec.append(weights[i])
+
+    def WrightWeightsInFile(self, _fileName: str):
+        for i in range(len(self.vec)):
+            packAiWeaghtsByLayer(_fileName, self.vec[i])
 
     def PrintWeights(self):
         print(*[i.get() for i in self.vec])
@@ -38,15 +52,14 @@ class NeuralNetwork:
             i.SetRandomWeights()
 
     def RunNetwork(self, inputArgs: int):
-        return max(self.ForwardPropagation(inputArgs))
-
+        return self.ForwardPropagation(inputArgs)
 
     def ForwardPropagation(self, inputArgs: int):
         bufArgs = inputArgs
         for i in self.layers:
             bufArgs = i.NextSumLayer(bufArgs)
         return bufArgs
-    
+
     def PrintNetwork(self):
         for i in self.layers:
             i.PrintWeights()
@@ -55,7 +68,15 @@ class NeuralNetwork:
         for i in self.layers:
             i.SetTrue()
 
-
-network = NeuralNetwork([2, 3, 2])
-network.SetRandomWeigths()
-print(network.RunNetwork([1, 0, 1, -1]))
+    def ReadWeaghtsFromFile(self, _fileName: str):
+        weights = unpackAiWeaghts(_fileName)
+        for i in range(len(self.layers)):
+            try:
+                self.layers[i].SetWeights(weights[i])
+            except IndexError:
+                print("Error: Compain, extending exist lyer")
+                self.layers.append(weights[i])
+    
+    def WriteWeightsInFile(self, fileName: str):
+        for i in range(len(self.layers)):
+            self.layers[i].WrightWeightsInFile(fileName)
