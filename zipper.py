@@ -4,7 +4,7 @@ import pickle
 def packBinIntToInt(weagths: list[int]):
     result = ""
     for i in weagths:
-        result += str(bin(i)[2:])
+        result += str(bin(i)[2:].zfill(2))
     return result
 
 def interfaceOfPacker(weagths: list[list[int]]):
@@ -17,8 +17,6 @@ def easyIntPacker(fileName: str, weagths: list[list[int]]):
     lenght = 2
     for i in weagths:
         lenght += len(i) + 2
-
-    print(lenght)
     with open(fileName, "wb") as f:
         f.write(int(interfaceOfPacker(weagths), 2).to_bytes(int(lenght/4), 'big', signed=False))
 
