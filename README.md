@@ -18,6 +18,9 @@ MAGI like artifitial neural network
 - [X] Lineart
 - [ ] finish todo list
 
+##Requirements
+python 3.13.5
+
 ## Sorces
 https://proceedings.neurips.cc/paper/2015/file/3e15cc11f979ed25912dff5b0669f2cd-Paper.pdf
 https://arxiv.org/pdf/2004.03333
