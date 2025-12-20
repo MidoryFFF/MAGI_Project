@@ -21,3 +21,6 @@ class BinInt:
     
     def getTrueValues(self) -> list[bool]:
         return [self.x, self.y]
+    
+    def getInt(self):
+        return int(self.x << 1) + int(self.y)

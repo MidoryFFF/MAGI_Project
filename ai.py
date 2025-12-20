@@ -16,7 +16,13 @@ class NeuronVector:
 
     def SetRandomWeights(self):
         for i in self.vec:
-            i.set(random.randint(0, 1), random.randint(0, 1))
+            rand = random.randint(0, 3)
+            if (rand == 0):
+                i.set(0, 0)
+            elif (rand == 1):
+                i.set(0, 1)
+            elif (rand == 2):
+                i.set(1, 1)
 
     def SetWeights(self, weights: list[BinInt]):
         for i in range(len(self.vec)):
@@ -35,7 +41,10 @@ class NeuronVector:
     
     def SetTrue(self):
         for i in self.vec:
-            i.set(i, 1, 1)
+            i.set(1, 1)
+
+    def GetWeights(self):
+        return [i.getInt() for i in self.vec]
 
 
 class NeuralNetwork:
@@ -80,3 +89,6 @@ class NeuralNetwork:
     def WriteWeightsInFile(self, fileName: str):
         for i in range(len(self.layers)):
             self.layers[i].WrightWeightsInFile(fileName)
+
+    def EasyWeiteInFile(self, fileName: str):
+        easyIntPacker(fileName, [i.GetWeights() for i in self.layers])
