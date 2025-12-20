@@ -24,3 +24,6 @@ python 3.13.5
 ## Sorces
 https://proceedings.neurips.cc/paper/2015/file/3e15cc11f979ed25912dff5b0669f2cd-Paper.pdf
 https://arxiv.org/pdf/2004.03333
+https://arxiv.org/pdf/1308.3432
+https://arxiv.org/pdf/2110.06804
+https://www.computeroptics.ru/KO/PDF/KO48-4/480412.pdf
