@@ -1,5 +1,7 @@
-from ai import *
+from Ai.ai import *
 
 network = NeuralNetwork([2, 3, 2])
-network.WriteWeightsInFile("AIs/Melchior.AI")
+network.SetRandomWeigths()
 network.PrintNetwork()
+network.VizualizeOutput()
+network.EasyWeiteInFile("AIs/Melchior.AI")
