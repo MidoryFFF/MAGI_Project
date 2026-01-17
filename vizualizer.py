@@ -26,8 +26,8 @@ with open("Output.txt") as f:
 fig = plt.figure(figsize=(10, 8))
 ax = fig.add_subplot(111, projection='3d')
 
-print(len(z), len(w))
-print(set(x), set(y), set(z), set(w))
+# print(len(z), len(w))
+# print(set(x), set(y), set(z), set(w))
 
 # Построение точек на графике с цветовым градиентом
 scatter = ax.scatter(y, z, x, cmap='viridis', s=50)

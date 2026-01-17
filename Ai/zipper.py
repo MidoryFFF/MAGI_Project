@@ -10,7 +10,6 @@ def interfaceOfPacker(weagths: list[list[int]]):
     result = "10"
     for i in weagths:
         result += packBinIntToInt(i) + "10"
-        print(result)
     return result
 
 def easyIntPacker(fileName: str, weagths: list[list[int]]):
@@ -70,9 +69,9 @@ def unpackAiWeaghtsInBinary(fileName: str, layerNumber: int) -> list[BinInt]:
 
 def FillUpInChar(vec: list[chr]) -> list[chr]:
     syzeOfChar = 4
-
     solution = []
     solution.append(0)
+
     while len(vec) > syzeOfChar/2:
         for _ in range(int(syzeOfChar/2)):
             solution[-1] = (solution[-1] + vec[0]) << 2
