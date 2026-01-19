@@ -37,11 +37,11 @@ $$
 _Из разряда шизо-теорий: из-за особенностей строения этого типа нейронных сетей (один вход — много выходов, как и у реальных нейронов человеческого мозга) их можно использовать как наборы отдельных типов нейронов. Правда, могут быть проблемы с обучаемостью, и вообще мои слова всерёз воспринимать нельзя._
 
 ## Sorces
-https://proceedings.neurips.cc/paper/2015/file/3e15cc11f979ed25912dff5b0669f2cd-Paper.pdf
-https://arxiv.org/pdf/2004.03333
-https://arxiv.org/pdf/1308.3432
-https://arxiv.org/pdf/2110.06804
-https://www.computeroptics.ru/KO/PDF/KO48-4/480412.pdf
+https://proceedings.neurips.cc/paper/2015/file/3e15cc11f979ed25912dff5b0669f2cd-Paper.pdf  
+https://arxiv.org/pdf/2004.03333  
+https://arxiv.org/pdf/1308.3432  
+https://arxiv.org/pdf/2110.06804  
+https://www.computeroptics.ru/KO/PDF/KO48-4/480412.pdf  
 
 ### Write/Read file explain 
 4 states of BinInt (00[0], 01[1], 10[-0], 11[-1])
